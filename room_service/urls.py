@@ -1,4 +1,4 @@
-from django.urls import Path
+from django.urls import path
 from .views import request_service, service_list
 
 urlpatterns = [
