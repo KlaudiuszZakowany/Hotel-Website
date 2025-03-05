@@ -1,0 +1,10 @@
+<table>
+    <tr><th>Room</th><th>Service</th><th>Description</th></tr>
+    {% for service in services %}
+    <tr>
+        <td>{{ service.room_number }}</td>
+        <td>{{ service.service_type }}</td>
+        <td>{{ service.description }}</td>
+    </tr>
+    {% endfor %}
+</table>
