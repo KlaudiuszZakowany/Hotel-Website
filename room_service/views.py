@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import RoomService
 from .forms import RoomServiceForm
@@ -14,7 +14,7 @@ def request_service(request):
         form = RoomServiceForm()
     return request, 'room_service/request_service.html', {'form' : form}
 
-    def service_list(request):
-        services = RoomService.objects.all()
-        return request, 'room_service/service_list.html', {'services' : services}
+def service_list(request):
+    services = RoomService.objects.all()
+    return request, 'room_service/service_list.html', {'services' : services}
         
