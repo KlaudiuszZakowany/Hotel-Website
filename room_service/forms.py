@@ -3,6 +3,7 @@ from .models import RoomService
 
 class RoomServiceForm(forms.ModelForm):
     class Meta:
-        '''model = new RoomService'''
-        fields = [ 'room_number', 'service_type', 'description']
+        model = RoomService
+        fields = [ 'room_number', 'service_choice', 'description']
+
         
