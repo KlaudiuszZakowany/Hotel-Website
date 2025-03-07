@@ -11,7 +11,7 @@ class SignUpView(CreateView):
     model = CustomUser
     form_class = CustomUserCreationForm
     template_name = 'registration/signup.html'
-    success_url = reverse_lazy('')
+    success_url = reverse_lazy('get_booking')
 
     def form_valid(self, form):
         # Save the new user
