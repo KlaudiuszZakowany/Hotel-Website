@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'room_service',
     'Booking',
     'Room',
+    'Pages',
     'accounts',
     # 3rd Party
     'crispy_forms',

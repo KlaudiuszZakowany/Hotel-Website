@@ -7,7 +7,7 @@ def get_booking(request):
         form = InitialBookingForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('thankyou.html')
+            return redirect('thank_you')
     
     else:
         form = InitialBookingForm()

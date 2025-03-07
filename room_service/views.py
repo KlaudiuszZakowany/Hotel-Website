@@ -12,9 +12,9 @@ def request_service(request):
     
     else:
         form = RoomServiceForm()
-    return request, 'room_service/request_service.html', {'form' : form}
+    return render(request, 'request_service.html', {'form' : form})
 
 def service_list(request):
     services = RoomService.objects.all()
-    return request, 'room_service/service_list.html', {'services' : services}
+    return render(request, 'service_list.html', {'services' : services})
         
