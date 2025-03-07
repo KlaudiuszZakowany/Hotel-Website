@@ -7,7 +7,7 @@ class InitialBookingForm(forms.ModelForm):
         fields = ['checkin_date','first_name',
                   'last_name','phone_nr',
                   'booking_email','occupants',
-                  'room_number','room_price_night']
+                  'room_choice']
 
 
             
