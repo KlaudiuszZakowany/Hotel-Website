@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'room_service',
     'Booking',
-    'Room'
+    'Room',
+    'checkout'
 ]
 
 MIDDLEWARE = [
