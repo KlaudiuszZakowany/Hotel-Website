@@ -40,11 +40,15 @@ INSTALLED_APPS = [
     'room_service',
     'Booking',
     'Room',
+<<<<<<< HEAD
+    'checkout'
+=======
     'Pages',
     'accounts',
     # 3rd Party
     'crispy_forms',
     'crispy_bootstrap5'
+>>>>>>> d3198a053ea0aa29cb6e8957d6f43af7966fe1f3
 ]
 
 MIDDLEWARE = [
