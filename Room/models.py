@@ -9,7 +9,6 @@ class Room(models.Model):
         ]
 
     room_number = models.IntegerField()
-    canTake = models.BooleanField(blank=True, null=True)
     floorNumber = models.IntegerField()
     room_price_night = models.FloatField() 
     room_type = models.CharField(max_length=10,choices=ROOM_TYPE)
