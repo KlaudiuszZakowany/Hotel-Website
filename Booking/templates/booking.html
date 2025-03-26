@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - My Django Site{% endblock %}
+
+{% block content %}
+    <h3>Enter your details:</h3>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="OK">
+    </form>
+
+{% endblock %}

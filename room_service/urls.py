@@ -1,7 +1,7 @@
-from django.urls import path
-from .views import request_service, service_list
+from django.urls import path, include
+from . import views
 
 urlpatterns = [
-    path('request/', request_service, name = 'request_service'),
-    path('list/', service_list, name = 'service_list'),
+    path('', views.request_service, name = 'request_service'),
+    path('list/', views.service_list, name = 'service_list'),
 ]

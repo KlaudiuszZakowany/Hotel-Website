@@ -18,7 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path('', include('Pages.urls')),
     path('admin/', admin.site.urls),
     path('room_service/', include('room_service.urls')),
+<<<<<<< HEAD
     path('checkout/', include('checkout.urls')),
+=======
+    path('accounts/', include('accounts.urls')), 
+    path('accounts/', include('django.contrib.auth.urls')), 
+    path('Booking/', include('Booking.urls')),
+>>>>>>> d3198a053ea0aa29cb6e8957d6f43af7966fe1f3
 ]
