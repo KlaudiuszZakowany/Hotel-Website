@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Find Available Rooms</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Search</button>
+</form>
+
+{% if available_rooms is not None %}
+    <h3>Available Rooms</h3>
+    {% if available_rooms %}
+        <ul>
+            {% for room in available_rooms %}
+                <li>
+                    {{ room.name }} - Capacity: {{ room.capacity }}
+                    <form method="post" action="{% url 'book_room' room.id %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="start_time" value="{{ form.start_time.value }}">
+                        <input type="hidden" name="end_time" value="{{ form.end_time.value }}">
+                        <button type="submit">Book</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No rooms available for the selected time.</p>
+    {% endif %}
+{% endif %}
+{% endblock %}
