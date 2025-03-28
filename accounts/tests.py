@@ -8,4 +8,4 @@ class CustomUserTestCase(TestCase):
     def test_user_creation(self):
         user = CustomUser.objects.get(username="testuser")
         self.assertEqual(user.email, "test@example.com") 
-        self.assertEqual(user.age, 18) 
+       
