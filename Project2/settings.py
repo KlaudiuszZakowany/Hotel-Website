@@ -40,15 +40,15 @@ INSTALLED_APPS = [
     'room_service',
     'Booking',
     'Room',
-<<<<<<< HEAD
+ 
     'checkout'
-=======
+
     'Pages',
     'accounts',
     # 3rd Party
     'crispy_forms',
     'crispy_bootstrap5'
->>>>>>> d3198a053ea0aa29cb6e8957d6f43af7966fe1f3
+ 
 ]
 
 MIDDLEWARE = [
@@ -141,3 +141,6 @@ LOGOUT_REDIRECT_URL = 'home'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+STRIPE_SECRET_KEY = 'sk_test_51QKNSoDLaF8LhzJrJn6TNB0C1McetPBbjoXaoBJDyS7jGHRj8YhGQjY6sGp30L3Dh2VSh2GD7yjrUC8TRKbyLzb000sdpooIa0'
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51QKNSoDLaF8LhzJrW3KvGnTjud2HwTfKGhrn8cTLsrrh31lQzZsgZDYCfwOZ4udVMYadf7wt7QmwNhqqZtrOSi5n00Qgq34Ypo'
