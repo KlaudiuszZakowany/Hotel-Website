@@ -40,9 +40,7 @@ INSTALLED_APPS = [
     'room_service',
     'Booking',
     'Room',
- 
-    'checkout'
-
+    'checkout',
     'Pages',
     'accounts',
     # 3rd Party
