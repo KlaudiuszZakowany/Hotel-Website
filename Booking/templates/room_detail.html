@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ room.name }}</h2>
+<p><strong>Capacity:</strong> {{ room.capacity }}</p>
+<p><strong>Description:</strong> {{ room.description }}</p>
+{% if room.image %}
+    <img src="{{ room.image.url }}" alt="{{ room.name }}" style="max-width: 100%; height: auto;">
+{% else %}
+    <p>No image available for this room.</p>
+{% endif %}
+<a href="{% url 'search_rooms' %}">Back to Search</a>
+{% endblock %}

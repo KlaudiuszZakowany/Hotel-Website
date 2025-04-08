@@ -6,6 +6,7 @@ class Room(models.Model):
     name = models.CharField(max_length=100, unique=True)
     capacity = models.IntegerField()
     description = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to='room_images/', blank=True, null=True)  # Add this line
 
     def __str__(self):
         return f"{self.name} (Capacity: {self.capacity})"
