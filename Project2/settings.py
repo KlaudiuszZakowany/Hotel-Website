@@ -143,3 +143,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 STRIPE_SECRET_KEY = 'sk_test_51QKNSoDLaF8LhzJrJn6TNB0C1McetPBbjoXaoBJDyS7jGHRj8YhGQjY6sGp30L3Dh2VSh2GD7yjrUC8TRKbyLzb000sdpooIa0'
 STRIPE_PUBLISHABLE_KEY = 'pk_test_51QKNSoDLaF8LhzJrW3KvGnTjud2HwTfKGhrn8cTLsrrh31lQzZsgZDYCfwOZ4udVMYadf7wt7QmwNhqqZtrOSi5n00Qgq34Ypo'
+MEDIA_URL = '/media/'  # URL to access media files
+MEDIA_ROOT = BASE_DIR / 'media'  # Directory to store uploaded files

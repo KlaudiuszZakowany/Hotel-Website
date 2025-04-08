@@ -17,6 +17,12 @@ def search_rooms(request):
         form = SearchRoomsForm()
     return render(request, 'search_rooms.html', {'form': form, 'available_rooms': available_rooms})
 
+
+def room_detail(request, room_id):
+    room = get_object_or_404(Room, id=room_id)
+    return render(request, 'room_detail.html', {'room': room})
+
+
 @login_required
 def book_room(request, room_id):
     room = get_object_or_404(Room, id=room_id)
