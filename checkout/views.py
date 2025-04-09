@@ -7,9 +7,8 @@ def checkout_page(request):
 import stripe
 from django.conf import settings
 from django.urls import reverse
-from django.shortcuts import render
 
-stripe.api_key = settings.STRIPE_TEST_SECRET_KEY
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def checkout_page(request):
     if request.method == 'POST':
@@ -38,6 +37,8 @@ def checkout_page(request):
 
         def cancel_page(request):
             return render(request, 'checkout/cancel.html')
-            
+
+        
+
 
         
