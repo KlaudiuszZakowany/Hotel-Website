@@ -32,13 +32,11 @@ def checkout_page(request):
     else:
         return render(request, 'checkout/checkout.html')
 
-        def success_page(request):
-            return render(request, 'checkout/success.html')
+def success_page(request):
+    return render(request, 'checkout/success.html')
 
-        def cancel_page(request):
-            return render(request, 'checkout/cancel.html')
-
-        
+def cancel_page(request):
+    return render(request, 'checkout/cancel.html')
 
 
         

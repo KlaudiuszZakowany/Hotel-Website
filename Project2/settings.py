@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'accounts',
     # 3rd Party
     'crispy_forms',
-    'crispy_bootstrap5'
+    'crispy_bootstrap5',
+    'stripe'
  
 ]
 

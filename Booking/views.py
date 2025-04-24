@@ -33,3 +33,8 @@ def book_room(request, room_id):
         end_time = datetime.fromisoformat(end_time)
         Booking.objects.create(user=request.user, room=room, start_time=start_time, end_time=end_time)
     return redirect('search_rooms')
+
+@login_required
+def active_bookings(request):
+    bookings = Booking.objects.filter(user=request.user, end_time__gte=datetime.now())
+    return render(request, 'active_bookings.html', {'bookings': bookings})

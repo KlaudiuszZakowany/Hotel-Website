@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Your Active Bookings</h2>
+{% if bookings %}
+    <ul>
+        {% for booking in bookings %}
+            <li>
+                Room: {{ booking.room.name }}<br>
+                Start Time: {{ booking.start_time }}<br>
+                End Time: {{ booking.end_time }}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>You have no active bookings.</p>
+{% endif %}
+{% endblock %}

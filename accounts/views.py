@@ -12,7 +12,7 @@ class CustomerSignUpView(CreateView):
     model = CustomUser
     form_class = CustomUserCreationForm
     template_name = 'registration/signup.html'
-    success_url = reverse_lazy('get_booking')
+    success_url = reverse_lazy('home')
     def form_valid(self, form):
 
     # Save the new user
@@ -27,7 +27,7 @@ class ManagerSignUpView(CreateView):
     model = CustomUser
     form_class = CustomUserCreationForm
     template_name = 'registration/signup.html'
-    success_url = reverse_lazy('get_booking')
+    success_url = reverse_lazy('home')
     def form_valid(self, form):
         # Save the new user
         response = super().form_valid(form)
@@ -40,7 +40,7 @@ class EmployeeSignUpView(CreateView):
     model = CustomUser
     form_class = CustomUserCreationForm
     template_name = 'registration/signup.html'
-    success_url = reverse_lazy('get_booking')
+    success_url = reverse_lazy('home')
     def form_valid(self, form):
         # Save the new user
         response = super().form_valid(form)
