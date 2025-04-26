@@ -1,7 +1,15 @@
 from django.shortcuts import render, redirect
-
 from .models import RoomService
 from .forms import RoomServiceForm
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from Booking.models import Booking
+from django.utils.timezone import now
+
+@login_required
+def room_service(request):
+    active_bookings = Booking.objects.filter(user=request.user, end_time__gte=now())
+    return render(request, 'room_service.html', {'active_bookings': active_bookings})
 
 def request_service(request):
     if request.method == "POST":

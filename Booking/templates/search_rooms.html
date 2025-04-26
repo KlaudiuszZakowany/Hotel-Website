@@ -14,17 +14,18 @@
         <ul>
             {% for room in available_rooms %}
                 <li>
-                    <a href="{% url 'room_detail' room.id %}">{{ room.name }}</a> - Capacity: {{ room.capacity }}
+                    <a href="{% url 'room_detail' room.id %}">{{ room.name }}</a> - Capacity: {{ room.capacity }} - Price per Day: ${{ room.price }}
                     {% if room.image %}
                         <img src="{{ room.image.url }}" alt="{{ room.name }}" style="width: 100px; height: auto;">
                     {% else %}
                         <p>No image available</p>
                     {% endif %}
-                    <form method="post" action="{% url 'book_room' room.id %}">
-                        {% csrf_token %}
-                        <input type="hidden" name="start_time" value="{{ form.start_time.value }}">
-                        <input type="hidden" name="end_time" value="{{ form.end_time.value }}">
-                        <button type="submit">Book</button>
+                    <form method="get" action="{% url 'pay_for_room' room.id %}">
+                        <label for="start_time">Start Date:</label>
+                        <input type="date" name="start_time" required>
+                        <label for="end_time">End Date:</label>
+                        <input type="date" name="end_time" required>
+                        <button type="submit">Pay to Book</button>
                     </form>
                 </li>
             {% endfor %}

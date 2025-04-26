@@ -39,14 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'room_service',
     'Booking',
-    'Room',
     'checkout',
     'Pages',
     'accounts',
     # 3rd Party
     'crispy_forms',
     'crispy_bootstrap5',
-    'stripe'
  
 ]
 

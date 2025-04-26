@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Payment Successful</h2>
+<p>Your booking for <strong>{{ room.name }}</strong> has been confirmed!</p>
+<p><strong>Capacity:</strong> {{ room.capacity }}</p>
+<p><strong>Price per Day:</strong> ${{ room.price }}</p>
+<a href="{% url 'active_bookings' %}">View Active Bookings</a>
+{% endblock %}
