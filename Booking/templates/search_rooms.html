@@ -20,6 +20,7 @@
                     {% else %}
                         <p>No image available</p>
                     {% endif %}
+                    {% if user.is_authenticated %}
                     <form method="get" action="{% url 'pay_for_room' room.id %}">
                         <label for="start_time">Start Date:</label>
                         <input type="date" name="start_time" required>
@@ -27,6 +28,9 @@
                         <input type="date" name="end_time" required>
                         <button type="submit">Pay to Book</button>
                     </form>
+                    {%else%}
+                    <p>User Must Be Logged In To Book</p>
+                    {%endif%}
                 </li>
             {% endfor %}
         </ul>
