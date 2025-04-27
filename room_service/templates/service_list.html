@@ -1,26 +1,23 @@
 {% extends 'base.html' %}
 
-{% block title %}Room Service {% endblock %}
 
 {% block content %}
 <h1>Room Service Menu</h1>
 
-<div class="row">
+<table>
+    <tr>
+        <th>Room</th>
+        <th>Service</th>
+        <th>Description</th>
+        <th>Price</th>
+    </tr>
     {% for service in services %}
-    <div class="col-md-4">
-        <div class="card mb-4">
-            {% if service.image %}
-                <img src="{{service.image.url}}" class="card-img-top" alt="{{service.service_type}}">
-            {% endif %}
-            <div class="card-body">
-                <h5 class="card-title">{{ service.service_type }}</h5>
-                <p class="card-text">{{ service.description }}</p>
-                <p class="card-text">{{ service.price }}</p>
-                <a href="#" class="btn btn-primary">Add to Cart</a>
-            </div>
-        </div>
-    </div>
+    <tr>
+        <td>{{ service.room_number }}</td>
+        <td><a href="{% url 'service_detail' service.pk %}">{{ service.service_type }}</a></td>
+        <td>{{ service.description|truncatewords:10 }}</td>
+        <td>{{ service.price }}</td>
+    </tr>
     {% endfor %}
-</div>
-
+</table>
 {% endblock %}
