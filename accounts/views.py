@@ -14,13 +14,10 @@ class CustomerSignUpView(CreateView):
     template_name = 'registration/signup.html'
     success_url = reverse_lazy('home')
     def form_valid(self, form):
-
-    # Save the new user
         response = super().form_valid(form)
-        # Add user to the Customer group
         customer_group, created = Group.objects.get_or_create(name='Customer')
         self.object.groups.add(customer_group)
-        return response # Redirect to success URL
+        return response 
 
 
 class ManagerSignUpView(CreateView):
@@ -29,12 +26,10 @@ class ManagerSignUpView(CreateView):
     template_name = 'registration/signup.html'
     success_url = reverse_lazy('home')
     def form_valid(self, form):
-        # Save the new user
         response = super().form_valid(form)
-        # Add user to the Customer group
         customer_group, created = Group.objects.get_or_create(name='Manager')
         self.object.groups.add(customer_group)
-        return response # Redirect to success URL
+        return response 
 
 class EmployeeSignUpView(CreateView):
     model = CustomUser
@@ -42,12 +37,10 @@ class EmployeeSignUpView(CreateView):
     template_name = 'registration/signup.html'
     success_url = reverse_lazy('home')
     def form_valid(self, form):
-        # Save the new user
         response = super().form_valid(form)
-        # Add user to the Customer group
         customer_group, created = Group.objects.get_or_create(name='Employee')
         self.object.groups.add(customer_group)
-        return response # Redirect to success URL
+        return response 
 
 class ProfilePageView(DetailView):
     model = Profile

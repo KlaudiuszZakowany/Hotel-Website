@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Pay for Room</h2>
+<p><strong>Room:</strong> {{ room.name }}</p>
+<p><strong>Price per Day:</strong> ${{ room.price }}</p>
+<p><strong>Capacity:</strong> {{ room.capacity }}</p>
+<p><strong>Description:</strong> {{ room.description }}</p>
+{% if room.image %}
+    <img src="{{ room.image.url }}" alt="{{ room.name }}" style="width: 300px; height: auto;">
+{% endif %}
+{% if error %}
+    <p style="color: red;">{{ error }}</p>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="start_time" value="{{ request.GET.start_time }}">
+    <input type="hidden" name="end_time" value="{{ request.GET.end_time }}">
+    <button type="submit">Proceed to Payment</button>
+</form>
+{% endblock %}
