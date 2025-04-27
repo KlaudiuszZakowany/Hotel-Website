@@ -18,3 +18,5 @@ def service_list(request):
     services = RoomService.objects.all()
     return render(request, 'service_list.html', {'services' : services})
         
+
+
