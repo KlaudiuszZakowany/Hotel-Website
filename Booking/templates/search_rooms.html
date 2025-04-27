@@ -2,6 +2,8 @@
 
 {% block content %}
 <h2>Find Available Rooms</h2>
+
+
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
@@ -11,31 +13,35 @@
 {% if available_rooms is not None %}
     <h3>Available Rooms</h3>
     {% if available_rooms %}
-        <ul>
+        <div class="row">
             {% for room in available_rooms %}
-                <li>
-                    <a href="{% url 'room_detail' room.id %}">{{ room.name }}</a> - Capacity: {{ room.capacity }} - Price per Day: ${{ room.price }}
-                    {% if room.image %}
-                        <img src="{{ room.image.url }}" alt="{{ room.name }}" style="width: 100px; height: auto;">
-                    {% else %}
-                        <p>No image available</p>
-                    {% endif %}
-                    {% if user.is_authenticated %}
-                    <form method="get" action="{% url 'pay_for_room' room.id %}">
-                        <label for="start_time">Start Date:</label>
-                        <input type="date" name="start_time" required>
-                        <label for="end_time">End Date:</label>
-                        <input type="date" name="end_time" required>
-                        <button type="submit">Pay to Book</button>
-                    </form>
-                    {%else%}
-                    <p>User Must Be Logged In To Book</p>
-                    {%endif%}
-                </li>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        {% if room.image %}
+                            <img src="{{ room.image.url }}" class="card-img-top" alt="{{ room.name }}">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ room.name }}</h5>
+                            <p class="card-text">Capacity: {{ room.capacity }}</p>
+                            <p class="card-text">Price per Day: ${{ room.price }}</p>
+                            {% if user.is_authenticated %}
+                                <form method="get" action="{% url 'pay_for_room' room.id %}">
+                                    <label for="start_time">Start Date:</label>
+                                    <input type="date" name="start_time" class="form-control mb-2" required>
+                                    <label for="end_time">End Date:</label>
+                                    <input type="date" name="end_time" class="form-control mb-2" required>
+                                    <button type="submit" class="btn btn-primary w-100">Pay to Book</button>
+                                </form>
+                            {% else %}
+                                <p class="text-danger">User Must Be Logged In To Book</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
             {% endfor %}
-        </ul>
+        </div>
     {% else %}
-        <p>No rooms available for the selected time.</p>
+        <p class="text-danger">No rooms available for the selected time.</p>
     {% endif %}
 {% endif %}
 {% endblock %}

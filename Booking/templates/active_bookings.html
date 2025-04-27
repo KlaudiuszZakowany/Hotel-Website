@@ -1,18 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Your Active Bookings</h2>
-{% if bookings %}
-    <ul>
-        {% for booking in bookings %}
-            <li>
-                Room: {{ booking.room.name }}<br>
-                Start Time: {{ booking.start_time }}<br>
-                End Time: {{ booking.end_time }}
-            </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>You have no active bookings.</p>
-{% endif %}
+<h2 class="text-center my-4">Your Active Bookings</h2>
+<div class="container">
+    {% if bookings %}
+        <div class="row">
+            {% for booking in bookings %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Room: {{ booking.room.name }}</h5>
+                            <p class="card-text">Start Time: {{ booking.start_time }}</p>
+                            <p class="card-text">End Time: {{ booking.end_time }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-danger text-center">You have no active bookings.</p>
+    {% endif %}
+</div>
 {% endblock %}

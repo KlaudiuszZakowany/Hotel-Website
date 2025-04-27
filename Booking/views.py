@@ -35,9 +35,14 @@ def book_room(request, room_id):
     if start_time and end_time:
         start_time = datetime.fromisoformat(start_time)
         end_time = datetime.fromisoformat(end_time)
+        if start_time < datetime.now():
+            return render(request, 'book_room.html', {
+                'room': room,
+                'error': 'Bookings cannot be set before today\'s date. Please choose a valid date.'
+            })
+
         Booking.objects.create(user=request.user, room=room, start_time=start_time, end_time=end_time)
     return redirect('search_rooms')
-
 @login_required
 def active_bookings(request):
     bookings = Booking.objects.filter(user=request.user, end_time__gte=datetime.now())
@@ -52,6 +57,12 @@ def pay_for_room(request, room_id):
         if start_time and end_time:
             start_time = datetime.fromisoformat(start_time)
             end_time = datetime.fromisoformat(end_time)
+
+            if start_time < datetime.now():
+                return render(request, 'pay_for_room.html', {
+                    'room': room,
+                    'error': 'Bookings cannot be set before today\'s date. Please choose a valid date.'
+                })
 
             overlapping_bookings = Booking.objects.filter(
                 room=room,
