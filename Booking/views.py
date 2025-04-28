@@ -4,7 +4,10 @@ from .models import Room, Booking
 from .forms import SearchRoomsForm
 from datetime import datetime, timedelta
 import stripe
+from django.urls import reverse_lazy
 from django.conf import settings
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.views.generic.edit import CreateView
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -123,3 +126,14 @@ def payment_success(request):
 @login_required
 def payment_cancel(request):
     return render(request, 'payment_cancel.html')
+
+class ManagerRequiredMixin(UserPassesTestMixin):
+    def test_func(self):
+        return self.request.user.groups.filter(name='Manager').exists()
+
+class RoomCreateView(ManagerRequiredMixin,CreateView):
+    model = Room
+    fields = ('name','capacity','image','description','price')
+    template_name = 'new_room.html'
+    success_url = reverse_lazy('home')
+    

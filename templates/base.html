@@ -50,6 +50,9 @@
                   <a href="#" onclick="event.preventDefault(); this.closest('form').submit();"
                     class="dropdown-item" style="color: black; cursor: pointer">Logout</a>
                 </form></li>
+                {% if is_manager %}
+                    <li><a class="dropdown-item" href="{% url 'room_create' %}">Add Room</a></li>
+                  {% endif %}
             </ul>
           </div>
 
