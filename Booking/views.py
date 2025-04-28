@@ -92,7 +92,7 @@ def pay_for_room(request, room_id):
                         'product_data': {
                             'name': room.name,
                         },
-                        'unit_amount': int(total_price * 100),  # Stripe expects the amount in cents
+                        'unit_amount': int(total_price * 100),
                     },
                     'quantity': 1,
                 }],

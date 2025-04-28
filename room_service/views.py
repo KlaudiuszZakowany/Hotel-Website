@@ -6,17 +6,13 @@ from django.contrib.auth.decorators import login_required
 from Booking.models import Booking
 from django.utils.timezone import now
 
-@login_required
-def room_service(request):
-    active_bookings = Booking.objects.filter(user=request.user, end_time__gte=now())
-    return render(request, 'room_service.html', {'active_bookings': active_bookings})
 
 def request_service(request):
     if request.method == "POST":
         form = RoomServiceForm(request.POST)
         if form.is_valid():
             form.save
-            return redirect('service_list')
+            return redirect('service_detail')
     
     else:
         form = RoomServiceForm()
@@ -24,11 +20,11 @@ def request_service(request):
 
 def service_list(request):
     services = RoomService.objects.all()
-    return render(request, 'room_service/service_list.html', {'services' : services})
+    return render(request, 'service_list.html', {'services' : services})
 
 def service_detail(request, pk):
     service = get_object_or_404(RoomService, pk=pk)
-    return render(request, 'room_service/service_detail.html.html', {'service': service})
+    return render(request, 'service_detail.html', {'service': service})
 
 
         
