@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import RoomCreateView
 
 urlpatterns = [
     path('search/', views.search_rooms, name='search_rooms'),
@@ -9,4 +10,5 @@ urlpatterns = [
     path('pay/<int:room_id>/', views.pay_for_room, name='pay_for_room'),
     path('success/', views.payment_success, name='payment_success'),
     path('cancel/', views.payment_cancel, name='payment_cancel'),
+    path('new/', RoomCreateView.as_view(), name='room_create')
 ]

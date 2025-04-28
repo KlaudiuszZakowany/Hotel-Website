@@ -45,11 +45,15 @@
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                 <li><a class="dropdown-item" href="{% url 'password_change' %}">Change password</a></li>
                 <li><a class="dropdown-item" href="{% url 'active_bookings' %}">Active Bookings</a></li>
+                {% if is_manager %}
+                    <li><a class="dropdown-item" href="{% url 'room_create' %}">Add Room</a></li>
+                  {% endif %}
                 <li><form method="post" action="{% url 'logout' %}" style="display: inline">
                   {% csrf_token %}
                   <a href="#" onclick="event.preventDefault(); this.closest('form').submit();"
                     class="dropdown-item" style="color: black; cursor: pointer">Logout</a>
                 </form></li>
+              
             </ul>
           </div>
 
