@@ -11,7 +11,7 @@ from .models import CustomUser, Profile
 class CustomerSignUpView(CreateView):
     model = CustomUser
     form_class = CustomUserCreationForm
-    template_name = 'registration/signup.html'
+    template_name = 'registration/c_signup.html'
     success_url = reverse_lazy('home')
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -23,7 +23,7 @@ class CustomerSignUpView(CreateView):
 class ManagerSignUpView(CreateView):
     model = CustomUser
     form_class = CustomUserCreationForm
-    template_name = 'registration/signup.html'
+    template_name = 'registration/m_signup.html'
     success_url = reverse_lazy('home')
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -34,7 +34,7 @@ class ManagerSignUpView(CreateView):
 class EmployeeSignUpView(CreateView):
     model = CustomUser
     form_class = CustomUserCreationForm
-    template_name = 'registration/signup.html'
+    template_name = 'registration/e_signup.html'
     success_url = reverse_lazy('home')
     def form_valid(self, form):
         response = super().form_valid(form)

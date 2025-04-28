@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Local
     'room_service',
     'Booking',
     'checkout',
@@ -138,8 +139,11 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
+
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 STRIPE_SECRET_KEY = 'sk_test_51QKNSoDLaF8LhzJrJn6TNB0C1McetPBbjoXaoBJDyS7jGHRj8YhGQjY6sGp30L3Dh2VSh2GD7yjrUC8TRKbyLzb000sdpooIa0'
 STRIPE_PUBLISHABLE_KEY = 'pk_test_51QKNSoDLaF8LhzJrW3KvGnTjud2HwTfKGhrn8cTLsrrh31lQzZsgZDYCfwOZ4udVMYadf7wt7QmwNhqqZtrOSi5n00Qgq34Ypo'
