@@ -24,11 +24,11 @@ def request_service(request):
 
 def service_list(request):
     services = RoomService.objects.all()
-    return render(request, 'room_service/service_list.html', {'services' : services})
+    return render(request, 'service_list.html', {'services' : services})
 
 def service_detail(request, pk):
     service = get_object_or_404(RoomService, pk=pk)
-    return render(request, 'room_service/service_detail.html.html', {'service': service})
+    return render(request, 'service_detail.html', {'service': service})
 
 
         
